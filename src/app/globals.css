@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+    --sidebar: #ffffff;
+    --sidebar-hover: #f3f4f6;
+    --sidebar-active: #eef2ff;
+    --border: #eef1f6;
+    --primary: #8b3dff; /* Beautiful purple like Canva */
+    --primary-foreground: #ffffff;
+    
+    /* Gradients */
+    --hero-bg-1: #dcf5fa;
+    --hero-bg-2: #e9e6fd;
+    --hero-bg-3: #fcebf0;
+  }
+
+  .dark {
+    --background: #000000;
+    --foreground: #ffffff;
+    --sidebar: #000000;
+    --sidebar-hover: #1a1a1a;
+    --sidebar-active: #262626;
+    --border: #262626;
+    --primary: #a855f7;
+    --primary-foreground: #ffffff;
+
+    /* Dark mode gradients - muted */
+    --hero-bg-1: #193345;
+    --hero-bg-2: #242145;
+    --hero-bg-3: #3b2a33;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Base custom utility components */
+.tool-input {
+  @apply w-full bg-transparent border border-border rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all bg-sidebar shadow-sm;
+}
+
+.tool-button {
+  @apply inline-flex items-center justify-center rounded-lg text-sm font-bold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary bg-primary text-primary-foreground hover:opacity-90 hover:shadow-md h-10 px-5 py-2 disabled:opacity-50 disabled:pointer-events-none;
+}
+
+.tool-button-secondary {
+  @apply inline-flex items-center justify-center rounded-lg text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border bg-sidebar text-foreground border border-border hover:bg-sidebar-hover shadow-sm h-10 px-5 py-2;
+}
+
+.tool-card {
+  @apply bg-sidebar border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow;
+}
+
+/* Custom Soft Mesh Gradient for Hero Header */
+.bg-hero-mesh {
+  background-image: 
+    radial-gradient(at 0% 0%, var(--hero-bg-1) 0px, transparent 50%),
+    radial-gradient(at 50% 0%, var(--hero-bg-2) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, var(--hero-bg-3) 0px, transparent 50%);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Grad text */
+.text-gradient {
+  background: linear-gradient(135deg, #4338ca 0%, #8b3dff 50%, #d946ef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dark .text-gradient {
+  background: linear-gradient(135deg, #a5b4fc 0%, #c084fc 50%, #f0abfc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
