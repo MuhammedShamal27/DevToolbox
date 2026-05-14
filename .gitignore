@@ -35,3 +35,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Node modules (ignore tracked files after untracking)
+node_modules/
+
+# Ignore generated next-swc binaries (large files)
+**/next-swc.*.node
