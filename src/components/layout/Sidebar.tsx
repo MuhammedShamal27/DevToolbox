@@ -7,7 +7,7 @@ import { useState } from 'react';
 export function Sidebar() {
   const { isDarkMode, toggleDarkMode, setActiveTool, activeToolId } = useToolStore();
   
-  const navItems = [
+  const navItems: { icon: any; label: string; id: string | null; premium?: boolean }[] = [
     { icon: Home, label: 'Home', id: null },
   ];
 
